@@ -2,7 +2,7 @@ from pwn import *
 import sys
 import logging
 
-p = cyclic(20000)
+p = cyclic(20000,n=8)
 if len(sys.argv) < 2:
     logging.error('usage: python3 pattern.py 0xdeadbeef')
     exit()
