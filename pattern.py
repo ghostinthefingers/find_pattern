@@ -2,12 +2,12 @@ from pwn import *
 import sys
 import logging
 
-if len(sys.argv) < 3:
-    logging.error('usage: python3 pattern.py <address> <n>')
+if len(sys.argv) < 2:
+    logging.error('usage: python3 pattern.py 0xdeadbeef [n=8]')
     exit()
 
 address = sys.argv[1]
-n = int(sys.argv[2])
+n = int(sys.argv[2]) if len(sys.argv) > 2 else 8  # Default to n=8 if not provided
 
 p = cyclic(20000, n=n)
 
